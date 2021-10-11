@@ -1,19 +1,33 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
 import { Table } from 'semantic-ui-react'
 import ProductService from '../../services/ProductService'
 
 function ProductList() {
     const [products, setProducts] = useState([])
+    let { categoryId } = useParams()
+
+
     useEffect(() => {
         let productService = new ProductService();
-        productService.getProducts()
+        if(categoryId){
+            productService.getProductsByCategory(categoryId)
             .then(response => {
                 setProducts(response.data)
             })
             .catch(error => {
 
             })
-    })
+        }else{
+            productService.getProducts()
+            .then(response => {
+                setProducts(response.data)
+            })
+            .catch(error => {
+
+            })
+        }
+    }, [categoryId])
     return (
         <Table stackable>
             <Table.Header>

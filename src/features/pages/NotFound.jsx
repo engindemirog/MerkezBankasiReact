@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default function CartDetail() {
+export default function NotFound() {
     return (
         <div>
-            Sepet
+            <h1>Sayfa bulunamadı</h1>
         </div>
     )
 }
-
