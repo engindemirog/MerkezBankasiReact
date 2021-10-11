@@ -18,9 +18,8 @@ export default function Navi() {
                 <Menu.Item>Anasayfa</Menu.Item>
                 <Menu.Item>Ürünler</Menu.Item>
                 <Menu.Menu position="right">
-                    {isAuthenticated?<SignedIn/>: <SignedOut/>}
-                </Menu.Menu>
-                
+                    {isAuthenticated?<SignedIn signOut={handleSignOut}/>: <SignedOut bisey="10" signIn={handleSignIn}/>}
+                </Menu.Menu>               
             </Menu>
         </div>
     )
