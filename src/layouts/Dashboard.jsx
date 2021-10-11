@@ -6,10 +6,12 @@ import ProductList from '../features/pages/ProductList'
 import CartDetail from '../features/pages/CartDetail'
 import Navi from './Navi'
 import NotFound from '../features/pages/NotFound'
+import { ToastContainer } from 'react-toastify'
 
 export default function Dashboard() {
     return (
         <div>
+            <ToastContainer position="bottom-right"/>
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={16}>

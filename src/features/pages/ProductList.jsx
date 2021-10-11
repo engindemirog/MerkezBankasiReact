@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { Table } from 'semantic-ui-react'
+import { toast } from 'react-toastify'
+import { Button, Table } from 'semantic-ui-react'
 import ProductService from '../../services/ProductService'
 
 function ProductList() {
@@ -28,6 +29,11 @@ function ProductList() {
             })
         }
     }, [categoryId])
+
+    function handleAddToCart(product) {
+        console.log(product)
+        toast.success("Sepete eklendi : " + product.name)
+    }
     return (
         <Table stackable>
             <Table.Header>
@@ -37,6 +43,7 @@ function ProductList() {
                     <Table.HeaderCell>Ürün fiyatı</Table.HeaderCell>
                     <Table.HeaderCell>Stok adedi</Table.HeaderCell>
                     <Table.HeaderCell>Açıklama</Table.HeaderCell>
+                    <Table.HeaderCell></Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
 
@@ -49,6 +56,9 @@ function ProductList() {
                             <Table.Cell>{product.unitPrice}</Table.Cell>
                             <Table.Cell>{product.unitsInStock}</Table.Cell>
                             <Table.Cell>{product.quantityPerUnit}</Table.Cell>
+                            <Table.Cell>
+                                <Button primary onClick={()=>handleAddToCart(product)}>Sepete ekle</Button>
+                            </Table.Cell>
                         </Table.Row>
                     ))
                 }
