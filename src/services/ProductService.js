@@ -8,3 +8,4 @@ export default class ProductService{
         return axios.get("http://localhost:3005/products?categoryId="+categoryId);
     }
 }
+

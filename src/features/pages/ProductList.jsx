@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import { Button, Table } from 'semantic-ui-react'
 import ProductService from '../../services/ProductService'
+import { addToCart } from '../../store/actions/cartActions'
 
 function ProductList() {
     const [products, setProducts] = useState([])
     let { categoryId } = useParams()
+    const dispatch = useDispatch()
 
 
     useEffect(() => {
@@ -31,7 +34,7 @@ function ProductList() {
     }, [categoryId])
 
     function handleAddToCart(product) {
-        console.log(product)
+        dispatch(addToCart(product))
         toast.success("Sepete eklendi : " + product.name)
     }
     return (
