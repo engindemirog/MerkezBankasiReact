@@ -8,6 +8,7 @@ import Navi from './Navi'
 import NotFound from '../features/pages/NotFound'
 import { ToastContainer } from 'react-toastify'
 import ProductList2 from '../features/pages/ProductList2'
+import ProductAdd from '../features/pages/ProductAdd'
 
 export default function Dashboard() {
     return (
@@ -28,6 +29,7 @@ export default function Dashboard() {
                             <Route exact path="/" component={ProductList}/>
                             <Route exact path="/products" component={ProductList}/>
                             <Route exact path="/products2" component={ProductList2}/>
+                            <Route exact path="/productadd" component={ProductAdd}/>
                             <Route exact path="/products/category/:categoryId" component={ProductList}/>
                             <Route path="/cart" component={CartDetail}/>
                             <Route component={NotFound}/>
